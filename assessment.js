@@ -83,9 +83,19 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 // CODE HERE...
 
+var Vehicle = function() {
+    this.gasRemaining = 100;
+}
 
+Vehicle.prototype.drive = function() {
+    this.gasRemaining = this.gasRemaining - 25;
+}
 
+var charger = new Vehicles();
+var mustang = new Vehicles();
 
+console.log( charger.drive() );
+console.log( mustang.drive() );
 
 // -----------------------------------------------------------------------------
 
@@ -104,12 +114,20 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // Your method may be passed punctuation, numbers or other non-letter characters
 // and should neither modify them nor break when encountering them.
 
-
-
-
 // CODE HERE...
+String.prototype.grammarPolice = function() {
+    var arr = this.split(' ');
+    
+    for (var i = 0; i < arr; i++) {
+        arr[i] = firstTOUpperCase( arr[i] );
+    }
+    return arr.join(' ');
+}
 
-
+function firstToUpperCase(word) {
+    var result = word[0].toUpperCase() + word.slice(1);
+    return result;
+}
 
 // *************
 // * PROBLEM 4 *
@@ -153,6 +171,10 @@ function large() {
 }
   // CODE HERE...
 
+  var boundToElephant = large.bind(elephant);
+
+  console.log ( boundToElephant() );
+
 // *************
 // * PROBLEM 6 *
 // *************
@@ -164,7 +186,10 @@ function large() {
 // and return the bound function.
 
 // CODE HERE...
-
+var deathStar = function(capacity, crew) {
+    var result = capacity.bind(crew);
+    return result;
+}
 
 // *************
 // * PROBLEM 7 *
@@ -178,3 +203,11 @@ function large() {
 // The closure function will return the combined value of assets and liabilities.
 
 // CODE HERE...
+
+var accountingOffice = function(assets) {
+    return function(liabilities) {
+       return   return  "" + assets + "" + liabilities;
+    }
+}
+
+
